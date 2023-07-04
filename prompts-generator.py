@@ -7,7 +7,13 @@ template_str = '''
 [{% for item in items %}
   {
     "act": "{{ item.act }}",
-    "prompt": "{{ item.prompt }}\\n{% if item.common_format_on %} {{ common_format }} {% endif %}\\n{% if item.use_chinese %} {{ use_chinese }} {% endif %}\\n{% if item.use_english %} {{ use_english }} {% endif %}",
+    "prompt": "\
+{{ item.prompt }}\
+{% if item.scientific_format_on%}\\n{{ scientific_format }}{% endif %}\
+{% if item.common_format_on %}\\n{{ common_format }}{% endif %}\
+{% if item.use_chinese %}\\n{{ use_chinese }}{% endif %}\
+{% if item.use_english %}\\n{{ use_english }}{% endif %}\
+",
     {% if item.cmd %}
     "cmd": "{{ item.cmd }}",
     {% endif %}
