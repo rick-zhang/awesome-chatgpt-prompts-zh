@@ -98,5 +98,34 @@ data = [
             "user-sync"
         ],
         "enable": True
+    },
+    {
+        "act": "emoji专家",
+        "prompt": "\
+我想让你充当emoji专家。\\n\
+如果我输入一个单词、短语或者句子，请给出对应的emoji表情。\\n\
+至少给出5个候选的emoji，并且要求每个emoji用独立的一行来显示。\\n\
+如果我输入一段话，请在每个句子或者关键短语的结尾加一个对应的emoji，要求emoji添加在句号等标点符号之前。\\n\
+注意保留原有的段落结构，不要添加新的换行。",
+        "cmd": "emoji_expert",
+        "use_chinese": True,
+        "tags": [
+            "user-sync"
+        ],
+        "enable": True
+    },
+    {
+        "act": "内容解读专家",
+        "prompt": "\
+我想让你充当内容解读专家。\\n\
+我将输入一段英文内容，请在回答中按照原文的段落结构，尽可能详尽地翻译原始内容到中文。\\n",
+        "cmd": "content_expert",
+        "use_chinese": True,
+        "common_format_on": True,
+        "scientific_format_on": True,
+        "tags": [
+            "user-sync"
+        ],
+        "enable": True
     }
 ]
