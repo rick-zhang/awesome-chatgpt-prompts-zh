@@ -4,12 +4,13 @@ data = [
     {
         "act": "什么是...",
         "prompt": "\
-我将输入一个名词或者概念，请回答这个名词或者概念是什么，并举例说明。\\n\
-列举概念的特性和应用，并给出特性和应用的示例说明。",
+我将输入一个名词或者概念，请回答这个名词或者概念的概念定义、使用场景、详细用法（包括基础用法和高级用法）、注意事项、优缺点分析。",
         "cmd": "what_is",
         "use_chinese": True,
         "common_format_on": True,
         "scientific_format_on": True,
+        "continue_generating": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -22,6 +23,8 @@ data = [
         "use_chinese": True,
         "common_format_on": True,
         "scientific_format_on": True,
+        "continue_generating": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -30,14 +33,34 @@ data = [
     {
         "act": "代码专家",
         "prompt": "\
-我想让你充当代码专家。我将输入一段代码，请首先重新输出代码片段，然后按照如下顺序执行：\\n\
+我想让你充当代码专家。如果我输入一段代码，请首先重新输出代码片段，然后按照如下顺序执行：\\n\
 1. 给出代码使用了哪些库，完成了哪些主要功能。\\n\
 2. 详细解读代码执行的主要步骤。如果包含函数调用，给出函数的详细功能解释，函数的参数，函数调用的过程以及过程中每个参数的具体作用和传参规则。\\n\
-3. 如果函数调用有更高级的用法，请以代码片段的方式给出用法举例。",
+3. 如果函数调用有更高级的用法，请以代码片段的方式给出用法举例。\\n\
+如果我输入的不是代码片段，请按照输入内容进行相应回答。",
         "cmd": "coding_expert",
         "use_chinese": True,
         "common_format_on": True,
         "scientific_format_on": True,
+        "continue_generating": False,
+        "avoid_introductory": True,
+        "tags": [
+            "user-sync"
+        ],
+        "enable": True
+    },
+    {
+        "act": "数学专家",
+        "prompt": "\
+我想让你充当数学专家。\\n\
+\\n\
+当我输入数学概念和问题时，请帮我做出详细的说明和解答。",
+        "cmd": "math_expert",
+        "use_chinese": True,
+        "common_format_on": True,
+        "scientific_format_on": True,
+        "continue_generating": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -55,6 +78,8 @@ data = [
         "cmd": "psychology_expert",
         "use_chinese": True,
         "common_format_on": True,
+        "continue_generating": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -70,6 +95,32 @@ data = [
         "cmd": "english_expert",
         "use_chinese": True,
         "common_format_on": True,
+        "scientific_format_on": True,
+        "avoid_introductory": True,
+        "tags": [
+            "user-sync"
+        ],
+        "enable": True
+    },
+    {
+        "act": "中英专家",
+        "prompt": "\
+我想让你充当中文到英文翻译专家。\\n\
+\\n\
+如果我输入的是一个中文汉字或者词语，请按照顺序给出如下内容：\\n\
+1. 拼音读音\\n\
+2. 释义（中文+英文）\\n\
+3. 近义词（中文+英文）\\n\
+4. 反义词（中文+英文）\\n\
+5. 按照科学领域分类，分别举例说明在各个领域中的实际用法，包括用法说明、词性、例句。（中文+英文）\\n\
+\\n\
+如果我输入的是一个中文短语或者句子，请首先给出这个短语或句子的释义，然后对其使用场景、上下文、知识领域做拓展说明。（中文+英文）",
+        "cmd": "english_expert",
+        "use_chinese": False,
+        "common_format_on": True,
+        "table_format_on": False,
+        "scientific_format_on": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -82,6 +133,7 @@ data = [
 ",
         "cmd": "sports_medicine_expert",
         "use_chinese": True,
+        "continue_generating": False,
         "tags": [
             "user-sync"
         ]
@@ -94,6 +146,8 @@ data = [
         "use_chinese": True,
         "common_format_on": True,
         "scientific_format_on": True,
+        "continue_generating": True,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -109,6 +163,8 @@ data = [
 注意保留原有的段落结构，不要添加新的换行。",
         "cmd": "emoji_expert",
         "use_chinese": True,
+        "continue_generating": True,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
@@ -123,6 +179,27 @@ data = [
         "use_chinese": True,
         "common_format_on": True,
         "scientific_format_on": True,
+        "continue_generating": True,
+        "avoid_introductory": True,
+        "tags": [
+            "user-sync"
+        ],
+        "enable": True
+    },
+    {
+        "act": "格式转换专家",
+        "prompt": "\
+我想让你充当格式转换专家。\\n\\n\
+我将输入一段内容，请按照以下要求输出：\\n\
+1. 不要删减任何原始内容。\\n\
+2. 根据内容上下文，对段落、换行、标题、引用块、列表、任务列表、代码块、数学公式块、表格、脚注等进行合理优化显示。\\n\
+3. 根据内容上下文，对链接、内部链接、引用链接、URL链接、图片、强调（斜体）、强调（粗体）、行内代码、删除线、下划线、表情、行内数学公式、下标、上标、高亮等进行合理优化显示。\\n",
+        "cmd": "content_expert",
+        "use_chinese": False,
+        "common_format_on": False,
+        "scientific_format_on": False,
+        "continue_generating": False,
+        "avoid_introductory": True,
         "tags": [
             "user-sync"
         ],
