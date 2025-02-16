@@ -12,6 +12,7 @@ template_str = '''
         + (("\\n" + avoid_introductory) if item.avoid_introductory else "")
         + (("\\n" + scientific_format) if item.scientific_format_on else "")
         + (("\\n" + common_format) if item.common_format_on else "")
+        + (("\\n" + below_h2_title) if item.below_h2_title_on else "")
         + (("\\n" + below_h3_title) if item.below_h3_title_on else "")
         + (("\\n" + table_format) if item.table_format_on else "")
         + (("\\n" + diagram_format) if item.diagram_format_on else "")
