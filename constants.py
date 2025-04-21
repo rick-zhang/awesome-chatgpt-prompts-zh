@@ -54,8 +54,8 @@ scientific_format = """
 diagram_format = """
 注意表格格式：
 1. 当需要用图表来辅助说明复杂的概念、关系、流程等时，请使用Mermaid支持的图表类型进行正确且合理的显示。
-2. 当Mermaid节点名称包含()时，为了防止与节点自身定义语法冲突，用引号包裹节点名称。例如：NodeA["节点A (节点别名)"]。
-3. 当使用Mermaid timeline图表类型时，注意语法`{time period} : {event}`中，务必保留`:`两边的空格。
+2. 当使用Mermaid timeline图表类型时，注意语法`{time period} : {event}`中，务必保留`:`两边的空格。
+3. 当使用Mermaid flowchart图标类型时，节点的文本内容均用""包围，例如：NodeA["节点A (节点别名)"]。
 """
 
 continue_generating = """
