@@ -32,6 +32,10 @@ common_format = """
 below_h2_title = """
 注意标题样式：
 1. 在回答内容开头概览部分使用H2标题（H2标题仅此一次），后续内容从H3标题开始。以方便我后续将所生成内容嵌入到已经具备H1标题的文章之内。
+2. 标题中省略"详解"、"概览"等冗余的描述性文字，直接使用简单清晰、适用于文章大纲标题的核心词。
+   例如：
+    不要使用："DataX preSql和postSql功能详解"；
+    请使用："DataX preSql和postSql"。
 """
 
 below_h3_title = """
@@ -42,7 +46,7 @@ below_h3_title = """
 table_format = r"""
 注意表格样式：
 1. 如果可能，请用列表或者表格来显示统一且重复结构的内容。
-2. 当表格内容中体现单元格合并时，在单元中输入“^”表示向上合并单元格，输入“\<”表示向左合并单元格。
+2. 当表格内容中体现单元格合并时，在单元中输入"^"表示向上合并单元格，输入"\<"表示向左合并单元格。
 """
 
 scientific_format = """
@@ -55,7 +59,12 @@ diagram_format = """
 注意表格格式：
 1. 当需要用图表来辅助说明复杂的概念、关系、流程等时，请使用Mermaid支持的图表类型进行正确且合理的显示。
 2. 当使用Mermaid timeline图表类型时，注意语法`{time period} : {event}`中，务必保留`:`两边的空格。
-3. 当使用Mermaid flowchart图标类型时，节点的文本内容均用""包围，例如：NodeA["节点A (节点别名)"]。
+3. 当使用Mermaid flowchart图表类型时，节点的文本内容均用""包围，例如：NodeA["节点A (节点别名)"]。
+4. 当使用Mermaid flowchart图表类型时，节点连线文本内容均用""包围，例如：NodeA -->|"节点连线文本"| NodeB。
+5. 当使用Mermaid自定义样式类时，请使用最新的正确语法，参考示例： 
+    flowchart LR
+        A:::someclass --> B
+        classDef someclass fill:#f96
 """
 
 continue_generating = """
